@@ -9,7 +9,14 @@ jobs:
     docker:
       - image: "cimg/node:18.17"
     steps:
-      - node/install
+      - node/install:
+          node-version: "18.17.1"
+          npm-version: "9.6.7"
+      - run:
+          name: Überprüfe Node und NPM Version
+          command: |
+            node -v
+            npm -v
       - checkout
       # install dependencies in both apps
       - run:
